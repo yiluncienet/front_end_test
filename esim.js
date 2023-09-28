@@ -11,18 +11,15 @@ var esim = (function() {
         input.value = strValue
     }
 
-    function button(){
+    function button(strElement){
         let button = document.querySelector(strElement);
-        if (button) {
-            button.click();
-        }
+        button.click();
     }
 
 
     function end() {
         alert('Attention! The script done');
     }
-
 
     return {
         start: start,
