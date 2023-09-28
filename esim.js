@@ -6,13 +6,13 @@ var esim = (function() {
         alert('Attention! The script will start');
     }
 
-    function input(strElement, strValue){
-        let input = document.querySelector(strElement);
+    function input(strElement, strValue, currentElement = document){
+        let input = currentElement.querySelector(strElement);
         input.value = strValue
     }
 
-    function eclick(strElement){
-        let clickableItem = document.querySelector(strElement);
+    function eclick(strElement, currentElement = document){
+        let clickableItem = currentElement.querySelector(strElement);
         clickableItem.click();
     }
 
@@ -24,18 +24,19 @@ var esim = (function() {
         window.location.href = strurl   ;
     }
 
+    function find(element, currentElement = document){
+        let elementAfterQuery = currentElement.querySelector(element);
+        return elementAfterQuery;
+    }
 
-    function deepfind(selector) {
+    function deepfind(selector, currentElement = document) {
 
-        let parts;
+        let parts = selector;
 
         if (typeof selector === "string") {
-            parts = selector.split('>');
-        } else {
-            parts = selector;
-        }
+            parts = parts.split('>');
+        } 
 
-        let currentElement = document;
         for (let i = 0; i < parts.length; i++) {
             if (currentElement.shadowRoot) {
                 currentElement = currentElement.shadowRoot.querySelector(parts[i].trim());
@@ -72,6 +73,7 @@ var esim = (function() {
         eclick: eclick,
         navigate: navigate,
         nav: nav,
+        find: find,
         deepfind: deepfind,
         didrender: didrender,
         end: end,
