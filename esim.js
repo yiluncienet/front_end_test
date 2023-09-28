@@ -6,9 +6,15 @@ var esim = (function() {
         alert('Attention! The script will start');
     }
 
-    // function multiply(a, b) {
-    //     return a * b;
-    // }
+    function input(strElement, strValue){
+        let input = document.querySelector(strElement);
+        input.value = strValue
+    }
+
+    function button(){
+        let button = document.querySelector(strElement);
+        button.click();
+    }
 
 
     function end() {
@@ -18,7 +24,8 @@ var esim = (function() {
 
     return {
         start: start,
-        // multiply: multiply
+        input: input,
+        button: button,
         end: end,
     };
 })();
