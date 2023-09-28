@@ -13,7 +13,7 @@ var esim = (function() {
 
     function button(){
         let button = document.querySelector(strElement);
-        button.click();
+        button.clicked = true;
     }
 
 
