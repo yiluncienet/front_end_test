@@ -50,9 +50,9 @@ var esim = (function() {
     };
 
 
-    function didrender(selectorsArray, actionFunction, intervalTime = 5000) {
+    function didrender(deepFondElement, actionFunction, intervalTime = 5000) {
         const interval = setInterval(() => {
-            const targetElement = deepfind(selectorsArray);
+            const targetElement = deepFondElement;
             
             if (targetElement) {
                 actionFunction(targetElement);
