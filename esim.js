@@ -50,6 +50,16 @@ var esim = (function() {
     };
 
 
+    function didrender(selectorsArray, actionFunction, intervalTime = 5000) {
+        const interval = setInterval(() => {
+            const targetElement = deepfind(selectorsArray);
+            
+            if (targetElement) {
+                actionFunction(targetElement);
+                clearInterval(interval);
+            }
+        }, intervalTime);
+    }
 
 
     function end() {
@@ -63,6 +73,7 @@ var esim = (function() {
         navigate: navigate,
         nav: nav,
         deepfind: deepfind,
+        didrender: didrender,
         end: end,
     };
 })();
