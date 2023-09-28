@@ -11,7 +11,7 @@ var esim = (function() {
         input.value = strValue
     }
 
-    function click(strElement){
+    function eclick(strElement){
         let clickableItem = document.querySelector(strElement);
         clickableItem.click();
     }
@@ -31,7 +31,7 @@ var esim = (function() {
     return {
         start: start,
         input: input,
-        click: click,
+        eclick: eclick,
         navigate: navigate,
         nav: nav,
         end: end,
