@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         login_sec_admin
+// @name         login_admin
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
@@ -13,8 +13,8 @@
 (function() {
     'use strict';
      esim.start();
-     esim.input('#username','sec_admin');
-     esim.input('#password','AdminAdmin123!');
+     esim.input('#username','yilun.wu');
+     esim.input('#password','Welcome@123456');
      esim.click('#button');
     // Your code here...
 })();

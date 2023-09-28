@@ -11,11 +11,18 @@ var esim = (function() {
         input.value = strValue
     }
 
-    function button(strElement){
-        let button = document.querySelector(strElement);
-        button.click();
+    function click(strElement){
+        let clickableItem = document.querySelector(strElement);
+        clickableItem.click();
     }
 
+    function nav(strurl){
+        window.location.href = 'strurl';
+    }
+
+    function navigate(strurl){
+        window.location.href = 'strurl';
+    }
 
     function end() {
         alert('Attention! The script done');
@@ -24,7 +31,9 @@ var esim = (function() {
     return {
         start: start,
         input: input,
-        button: button,
+        click: click,
+        navigate: navigate,
+        nav: nav,
         end: end,
     };
 })();
