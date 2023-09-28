@@ -15,6 +15,6 @@
      esim.start();
      esim.input('#username','sec_admin');
      esim.input('#password','AdminAdmin123!');
-     esim.click('#button');
+     esim.eclick('#button');
     // Your code here...
 })();
