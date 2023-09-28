@@ -17,12 +17,40 @@ var esim = (function() {
     }
 
     function nav(strurl){
-        window.location.href = 'strurl';
+        window.location.href = strurl;
     }
 
     function navigate(strurl){
-        window.location.href = 'strurl';
+        window.location.href = strurl   ;
     }
+
+
+    function deepfind(selector) {
+
+        let parts;
+
+        if (typeof selector === "string") {
+            parts = selector.split('>');
+        } else {
+            parts = selector;
+        }
+
+        let currentElement = document;
+        for (let i = 0; i < parts.length; i++) {
+            if (currentElement.shadowRoot) {
+                currentElement = currentElement.shadowRoot.querySelector(parts[i].trim());
+            } else {
+                currentElement = currentElement.querySelector(parts[i].trim());
+            }
+            if (!currentElement) {
+                return null; // 如果中间的某个元素没有找到，返回null
+            }
+        }
+        return currentElement;
+    };
+
+
+
 
     function end() {
         alert('Attention! The script done');
@@ -34,6 +62,7 @@ var esim = (function() {
         eclick: eclick,
         navigate: navigate,
         nav: nav,
+        deepfind: deepfind,
         end: end,
     };
 })();
