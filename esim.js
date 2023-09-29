@@ -82,17 +82,35 @@ var esim = (function() {
         return currentElement;
     };
 
-    function didrender(selectorsArray, actionFunction, intervalTime = 5000) {
-        let targetElement;
-        const interval = setInterval(() => {
-            targetElement = deepfind(selectorsArray);
+    // function didrender(selectorsArray, actionFunction, intervalTime = 5000) {
+    //     let targetElement;
+    //     const interval = setInterval(() => {
+    //         targetElement = deepfind(selectorsArray);
             
-            if (targetElement) {
-                actionFunction(targetElement);
-                clearInterval(interval);
-            }
-        }, intervalTime);
-        return targetElement;
+    //         if (targetElement) {
+    //             actionFunction(targetElement);
+    //             clearInterval(interval);
+    //         }
+    //     }, intervalTime);
+    //     return targetElement;
+    // }
+
+    function didrender(selectorsArray, actionFunction, intervalTime = 3500) {
+        return new Promise((resolve, reject) => {  
+            const interval = setInterval(() => {
+                try {
+                   const targetElement = deepfind(selectorsArray);
+                    if (targetElement) {
+                        actionFunction(targetElement);
+                        clearInterval(interval);
+                        resolve(true);
+                    }
+                } catch (error) {
+                    clearInterval(interval);
+                    reject(error);
+                }
+            }, intervalTime);
+        });
     }
 
 
