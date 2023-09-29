@@ -16,6 +16,32 @@ var esim = (function() {
         clickableItem.click();
     }
 
+
+    function typing(target, string) {
+        string.split("").forEach(char => {
+            ["keydown", "keypress", "keyup"].forEach(eventType => {
+                let event = new KeyboardEvent(eventType, {
+                    key: char,
+                    code: char.charCodeAt(0),
+                    bubbles: true,
+                    cancelable: true,
+                    charCode: char.charCodeAt(0)
+                });
+                target.dispatchEvent(event);
+            });
+    
+            // 输入字符到input
+            target.value += char;
+    
+            // 触发input事件
+            let inputEvent = new Event('input', {
+                'bubbles': true,
+                'cancelable': true
+            });
+            target.dispatchEvent(inputEvent);
+        });
+    }
+
     function nav(strurl){
         window.location.href = strurl;
     }
@@ -49,7 +75,6 @@ var esim = (function() {
         }
         return currentElement;
     };
-
 
     function didrender(selectorsArray, actionFunction, intervalTime = 5000) {
         const interval = setInterval(() => {
