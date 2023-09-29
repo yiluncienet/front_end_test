@@ -9,11 +9,13 @@ var esim = (function() {
     function input(strElement, strValue, currentElement = document){
         let input = currentElement.querySelector(strElement);
         input.value = strValue
+        return true;
     }
 
     function eclick(strElement, currentElement = document){
         let clickableItem = currentElement.querySelector(strElement);
         clickableItem.click();
+        return true;
     }
 
 
@@ -40,14 +42,18 @@ var esim = (function() {
             });
             target.dispatchEvent(inputEvent);
         });
+
+        return true;
     }
 
     function nav(strurl){
         window.location.href = strurl;
+        return true;
     }
 
     function navigate(strurl){
-        window.location.href = strurl   ;
+        window.location.href = strurl;
+        return true;
     }
 
     function find(element, currentElement = document){
@@ -85,6 +91,7 @@ var esim = (function() {
                 clearInterval(interval);
             }
         }, intervalTime);
+        return targetElement;
     }
 
 
