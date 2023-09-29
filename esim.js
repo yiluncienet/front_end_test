@@ -103,7 +103,7 @@ var esim = (function() {
                     if (targetElement) {
                         actionFunction(targetElement);
                         clearInterval(interval);
-                        resolve(true);
+                        resolve(targetElement);
                     }
                 } catch (error) {
                     clearInterval(interval);
