@@ -96,6 +96,7 @@ var esim = (function() {
         start: start,
         input: input,
         eclick: eclick,
+        typing: typing,
         navigate: navigate,
         nav: nav,
         find: find,
