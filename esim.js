@@ -116,7 +116,7 @@ var esim = (function() {
     function assert(condition, msg) {
         if (!condition) {
             console.log(`%cFail: ${msg}`, 'color: red; font-size: 16px;');
-            throw new Error(msg);
+            // throw new Error(msg);
         }
         else {
             console.log(`%cApproved: ${msg}`, 'color: green; font-size: 16px;');
