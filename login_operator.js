@@ -15,6 +15,6 @@
      esim.start();
      esim.input('#username','yilun.wu.op');
      esim.input('#password','Welcome@123456');
-     esim.eclick('#button');
+     esim.click('#button');
     // Your code here...
 })();
