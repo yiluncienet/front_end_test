@@ -12,7 +12,7 @@ var esim = (function() {
         return true;
     }
 
-    function eclick(strElement, currentElement = document){
+    function tick(strElement, currentElement = document){
         let clickableItem = currentElement.querySelector(strElement);
         clickableItem.click();
         return true;
@@ -95,7 +95,7 @@ var esim = (function() {
     //     return targetElement;
     // }
 
-    function didrender(selectorsArray, actionFunction, intervalTime = 3500) {
+    function rendered(selectorsArray, actionFunction, intervalTime = 3000) {
         return new Promise((resolve, reject) => {  
             const interval = setInterval(() => {
                 try {
@@ -113,6 +113,15 @@ var esim = (function() {
         });
     }
 
+    function assert(condition, msg) {
+        if (!condition) {
+            console.log(`%cFail: ${msg}`, 'color: red; font-size: 16px;');
+            throw new Error(msg);
+        }
+        else {
+            console.log(`%cApproved: ${msg}`, 'color: green; font-size: 16px;');
+        }
+    }
 
     function end() {
         alert('Attention! The script done');
@@ -121,13 +130,14 @@ var esim = (function() {
     return {
         start: start,
         input: input,
-        eclick: eclick,
+        click: tick,
         typing: typing,
         navigate: navigate,
         nav: nav,
         find: find,
         deepfind: deepfind,
-        didrender: didrender,
+        rendered: rendered,
+        assert: assert,
         end: end,
     };
 })();
