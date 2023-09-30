@@ -27,7 +27,7 @@ const intTime = 1000;
 
     const dataTable = [...arrElements, 'e-cnom-lib-table'];
 
-    esim.didrender(
+    esim.rendered(
         [...dataTable, 'eui-base-v0-text-field'],
         (filter) => esim.typing(filter, 'Test'),
       intTime
@@ -38,23 +38,23 @@ const intTime = 1000;
                          'e-cnom-internal-extended-table', 'tr[tabindex="-1"][data-index="0"]',
                         ]
 
-    esim.didrender(tableIndex0, (tableIndex0) => tableIndex0.click(), intTime)
+    esim.rendered(tableIndex0, (tableIndex0) => tableIndex0.click(), intTime)
         .then(
             () => {
 
                 const dropDown = [...arrElements, 'e-cnom-lib-actions-dropdown', 'eui-base-v0-dropdown'];
 
-                esim.didrender(
+                esim.rendered(
                     [...dropDown, 'eui-base-v0-button'],
                     (btnMoreActions) => btnMoreActions.click(), 1500
                 );
 
-                esim.didrender(
+                esim.rendered(
                     [...dropDown, 'eui-base-v0-menu-item:nth-child(2)'],
                     (btnDuplicate) => btnDuplicate.click(), 1500
                 );
 
-                esim.didrender(
+                esim.rendered(
                     [...arrElements, '#duplicate-dialog > eui-base-v0-button'],
                     (btnConfirmDelete) => btnConfirmDelete.click(), 1500
                 );
