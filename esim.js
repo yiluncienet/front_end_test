@@ -130,7 +130,7 @@ var esim = (function() {
     return {
         start: start,
         input: input,
-        click: tick,
+        tick: tick,
         typing: typing,
         navigate: navigate,
         nav: nav,
